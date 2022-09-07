@@ -1,15 +1,6 @@
-# Vite React Tailwind Starter Template
+# This is my first dAPP!
 
-This is a pretty simple Vite and React template I use to bootstrap demos and prototypes.
+This project was created from my react tailwind template
+which you can access at [this repo](https://github.com/ardasevinc/vite-react-tailwind-starter)
 
-## Ingredients
-
-- React 18
-- TailwindCSS v3
-- eslint
-  - prettier config
-  - tailwind config
-  - react config
-  - react 18 specific config
-- prettier
-- PNPM (I am speed)
+Or you can run `npx degit ardasevinc/vite-react-tailwind-starter appName`
