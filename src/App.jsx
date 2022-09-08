@@ -1,30 +1,27 @@
-import { useRef } from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { getWord, setWord } from "./utils/contract";
 
 function App() {
   const [message, setMessage] = useState("");
   const inputRef = useRef(null);
 
-  // const handleChange = (e) => {
-  //   setMessage(e.target.value);
-
-  //   console.log(e.target.value);
-  // };
-
-  const handleSave = () => {
+  const handleSave = async () => {
     // setMessage(inputRef.current.value)
-    console.log(inputRef.current.value);
+    const inputString =
+      inputRef.current.value || "someone just set an empty string";
+    await setWord(inputString);
   };
 
-  const handleView = () => {
-    setMessage(inputRef.current.value);
+  const handleView = async () => {
+    const word = await getWord();
+    setMessage(word);
   };
 
   return (
     <div className="h-screen w-full bg-slate-900">
       <main className="mx-auto flex h-full max-w-2xl flex-col items-center justify-center text-white">
         <h1 className="mb-10 text-5xl font-bold">My First dApp!</h1>
-        <div className="mb-10 flex items-center justify-center rounded-md bg-gray-700/20 p-5 font-mono text-4xl w-60 h-36 overflow-hidden">
+        <div className="mb-10 flex items-center justify-center rounded-md bg-gray-700/20 p-5 font-mono text-2xl w-96 h-80  overflow-hidden">
           {message}
         </div>
         <label htmlFor="word" className="mb-5 w-64">
